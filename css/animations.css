@@ -1,0 +1,174 @@
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/* Reveal on scroll */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1),
+              transform 0.8s cubic-bezier(0.4,0,0.2,1);
+}
+.reveal-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays via data-delay */
+[data-delay="0.05"].reveal-up  { transition-delay: 0.05s; }
+[data-delay="0.1"].reveal-up   { transition-delay: 0.1s; }
+[data-delay="0.15"].reveal-up  { transition-delay: 0.15s; }
+[data-delay="0.2"].reveal-up   { transition-delay: 0.2s; }
+[data-delay="0.25"].reveal-up  { transition-delay: 0.25s; }
+[data-delay="0.3"].reveal-up   { transition-delay: 0.3s; }
+[data-delay="0.35"].reveal-up  { transition-delay: 0.35s; }
+[data-delay="0.4"].reveal-up   { transition-delay: 0.4s; }
+[data-delay="0.5"].reveal-up   { transition-delay: 0.5s; }
+[data-delay="0.6"].reveal-up   { transition-delay: 0.6s; }
+[data-delay="0.7"].reveal-up   { transition-delay: 0.7s; }
+[data-delay="0.8"].reveal-up   { transition-delay: 0.8s; }
+[data-delay="0.9"].reveal-up   { transition-delay: 0.9s; }
+
+/* Floating glow orbs */
+@keyframes floatOrb {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-20px) scale(1.05); }
+}
+
+/* Ambient hero orbs */
+#hero::before,
+#hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+  animation: floatOrb 8s ease-in-out infinite;
+}
+#hero::before {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(0,240,255,0.06), transparent 70%);
+  top: 10%; left: 5%;
+  animation-delay: 0s;
+}
+#hero::after {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(123,47,255,0.07), transparent 70%);
+  bottom: 10%; right: 10%;
+  animation-delay: -4s;
+}
+
+/* Glitch effect for hero name on hover */
+.hero-name:hover .line:first-child {
+  animation: glitch 0.3s ease;
+}
+@keyframes glitch {
+  0%   { text-shadow: none; transform: none; }
+  20%  { text-shadow: -2px 0 #ff3d6b, 2px 0 #00f0ff; transform: translateX(-1px); }
+  40%  { text-shadow: 2px 0 #ff3d6b, -2px 0 #00f0ff; transform: translateX(1px); }
+  60%  { text-shadow: -1px 0 #7b2fff; transform: translateX(-1px); }
+  80%  { text-shadow: 1px 0 #00f0ff; transform: translateX(1px); }
+  100% { text-shadow: none; transform: none; }
+}
+
+/* Shimmer on buttons */
+.btn-primary:hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  animation: shimmer 0.6s ease forwards;
+}
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+/* Timeline dot pulse */
+.tl-dot {
+  animation: tlPulse 3s ease-in-out infinite;
+}
+@keyframes tlPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,240,255,0.4), 0 0 10px var(--accent); }
+  50%       { box-shadow: 0 0 0 6px rgba(0,240,255,0), 0 0 16px var(--accent); }
+}
+
+/* Skill card hover glow */
+.skill-card:hover {
+  box-shadow: 0 4px 24px rgba(0,240,255,0.08);
+}
+
+/* Project card scan line */
+.project-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  transform: translateY(-1px);
+  transition: transform 0.5s;
+}
+.project-card:hover::before {
+  animation: scanLine 0.5s ease forwards;
+}
+@keyframes scanLine {
+  from { transform: translateY(-1px); }
+  to   { transform: translateY(200px); opacity: 0; }
+}
+
+/* Nav active indicator */
+nav .active {
+  color: var(--accent) !important;
+}
+nav .active::after {
+  transform: scaleX(1) !important;
+}
+
+/* Corner decorations on featured project */
+.project-card.featured::before { display: none; }
+.project-card.featured .corner-tl,
+.project-card.featured .corner-br {
+  position: absolute;
+  width: 20px; height: 20px;
+  border-color: rgba(0,240,255,0.3);
+  border-style: solid;
+}
+
+/* Tag hover shimmer */
+.tag {
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.tag:hover {
+  box-shadow: 0 0 12px rgba(0,240,255,0.15);
+}
+
+/* Form input focus glow */
+.form-input:focus {
+  box-shadow: 0 0 0 1px rgba(0,240,255,0.2), 0 0 16px rgba(0,240,255,0.05);
+}
+
+/* Stat counter animation */
+.stat-num {
+  display: inline-block;
+}
+
+/* Channel hover */
+.channel:not(.no-link)::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--accent);
+  transform: scaleY(0); transform-origin: bottom;
+  transition: transform 0.3s;
+}
+.channel:not(.no-link):hover::before {
+  transform: scaleY(1);
+}
+
+/* Loader dots animation */
+@keyframes loaderDots {
+  0%   { content: '_'; }
+  33%  { content: '__'; }
+  66%  { content: '___'; }
+  100% { content: '_'; }
+}
