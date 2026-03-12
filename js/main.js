@@ -298,6 +298,21 @@ function typewriter() {
 })();
 
 /* ────────────────────────────────────────────────
+   EXTERNAL LINK FIX
+   Forces external links to open in a new tab
+   even when running from file:// protocol
+──────────────────────────────────────────────── */
+document.querySelectorAll('a[target="_blank"]').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
+      e.preventDefault();
+      window.open(href, '_blank', 'noopener,noreferrer');
+    }
+  });
+});
+
+/* ────────────────────────────────────────────────
    CONTACT FORM
 ──────────────────────────────────────────────── */
 function submitForm(e) {
