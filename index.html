@@ -1,533 +1,476 @@
 <!DOCTYPE html>
+<!-- cspell:disable -->
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Thisal Kandepola — Full Stack Developer and UI/UX Designer from Sri Lanka."/>
-  <meta name="author" content="Thisal Kandepola"/>
-  <!-- cspell:disable -->
+  <meta name="description" content="Thisal Kandepola — Full Stack Developer & UI/UX Designer from Sri Lanka."/>
   <title>Thisal Kandepola</title>
+
+  <!-- FAVICON (inline SVG as data URI) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1c3f'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='30' font-weight='900' fill='%233b82f6'%3ETK%3C/text%3E%3C/svg%3E"/>
+
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
 
-<!-- CURSOR -->
-<div id="cursorDot"></div>
-<div id="cursorCircle"></div>
+<div class="noise" aria-hidden="true"></div>
+<div id="cursor" aria-hidden="true"><div class="c-dot"></div><div class="c-ring"></div></div>
 
 <!-- PRELOADER -->
-<div id="preloader">
-  <div class="pre-content">
-    <div class="pre-logo">TK</div>
-    <div class="pre-bar-wrap"><div class="pre-bar" id="preBar"></div></div>
-    <div class="pre-label" id="preLabel">LOADING</div>
+<div id="preloader" aria-hidden="true">
+  <div class="pre-inner">
+    <div class="pre-logo">TK<span>.</span></div>
+    <div class="pre-track"><div class="pre-fill" id="preBar"></div></div>
+    <div class="pre-num" id="preLabel">0%</div>
   </div>
 </div>
 
-<!-- NAV -->
+<!-- HEADER -->
 <header id="header">
-  <nav class="nav-inner">
-    <a href="#home" class="logo" aria-label="Home">
-      <span class="logo-t">T</span><span class="logo-k">K</span>
-      <span class="logo-dot">.</span>
-    </a>
+  <nav class="nav">
+    <a href="#home" class="nav-logo" aria-label="Home">TK<em>.</em></a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#about"     class="nav-a"><span>01</span>About</a></li>
-      <li><a href="#skills"    class="nav-a"><span>02</span>Skills</a></li>
-      <li><a href="#projects"  class="nav-a"><span>03</span>Projects</a></li>
-      <li><a href="#education" class="nav-a"><span>04</span>Education</a></li>
-      <li><a href="#contact"   class="nav-a"><span>05</span>Contact</a></li>
+      <li><a href="#about"     class="nl"><em>01</em>About</a></li>
+      <li><a href="#skills"    class="nl"><em>02</em>Skills</a></li>
+      <li><a href="#projects"  class="nl"><em>03</em>Work</a></li>
+      <li><a href="#education" class="nl"><em>04</em>Education</a></li>
+      <li><a href="#contact"   class="nl"><em>05</em>Contact</a></li>
     </ul>
-    <a href="mailto:tkandepola@gmail.com" class="nav-cta">Hire Me</a>
-    <button class="burger" id="burger" aria-label="Toggle navigation menu">
-      <span></span><span></span>
-    </button>
+    <a href="mailto:tkandepola@gmail.com" class="nav-cta">
+      Hire Me
+      <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </a>
+    <button id="burger" class="burger" aria-label="Toggle menu"><span></span><span></span></button>
   </nav>
 </header>
 
-<!-- MOBILE NAV -->
-<div class="mob-nav" id="mobNav" aria-hidden="true">
-  <ul>
-    <li><a href="#about"     class="mob-link">About</a></li>
-    <li><a href="#skills"    class="mob-link">Skills</a></li>
-    <li><a href="#projects"  class="mob-link">Projects</a></li>
-    <li><a href="#education" class="mob-link">Education</a></li>
-    <li><a href="#contact"   class="mob-link">Contact</a></li>
-  </ul>
+<!-- MOBILE MENU -->
+<div id="mobMenu" class="mob-menu" aria-hidden="true">
+  <div class="mm-inner">
+    <a href="#about"     class="mm-link" data-n="01">About</a>
+    <a href="#skills"    class="mm-link" data-n="02">Skills</a>
+    <a href="#projects"  class="mm-link" data-n="03">Work</a>
+    <a href="#education" class="mm-link" data-n="04">Education</a>
+    <a href="#contact"   class="mm-link" data-n="05">Contact</a>
+  </div>
+  <div class="mm-foot">
+    <a href="https://github.com/ThisalDinuwara"   target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
+    <a href="https://www.linkedin.com/in/thisal-kandepola-65b66127b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+  </div>
 </div>
 
-<!-- SCROLL PROGRESS -->
-<div id="readProgress" role="progressbar" aria-label="Reading progress"></div>
+<div id="scrollBar" role="progressbar" aria-label="Page scroll progress"></div>
 
-<!-- HERO -->
+<!-- ══════════ HERO ══════════ -->
 <section id="home" class="hero">
   <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-wrap">
 
-  <div class="hero-grid">
     <div class="hero-left">
-      <p class="hero-status fade-up delay-0">
-        <span class="status-dot"></span> Available for work
-      </p>
-      <h1 class="hero-h1 fade-up delay-1">
-        <em>THISAL</em>
-        <strong>KANDEPOLA</strong>
+      <div class="avail-badge ru" data-d="0">
+        <span class="avail-dot" aria-hidden="true"></span>Available for opportunities
+      </div>
+      <h1 class="hero-h1">
+        <span class="h1-line ru" data-d="1"><em>Thisal</em></span>
+        <span class="h1-line ru" data-d="2"><strong>Kandepola</strong></span>
       </h1>
-      <div class="hero-role fade-up delay-2">
-        <span id="roleText"></span><span class="cursor-blink" aria-hidden="true">|</span>
+      <div class="hero-role ru" data-d="3">
+        <span class="role-dash" aria-hidden="true">—&nbsp;</span>
+        <span id="roleText"></span><span class="role-cur" aria-hidden="true"></span>
       </div>
-      <p class="hero-bio fade-up delay-3">
-        Software engineering student &middot; UI/UX designer &middot; Full stack developer
-        building the next wave of digital experiences from Sri Lanka.
+      <p class="hero-bio ru" data-d="4">
+        Software engineering student crafting immersive digital experiences
+        through thoughtful design and precision code — from Sri Lanka, for the world.
       </p>
-      <div class="hero-btns fade-up delay-4">
-        <a href="#projects" class="btn-main">View Projects</a>
-        <a href="#contact"  class="btn-ghost">Let's Talk</a>
+      <div class="hero-btns ru" data-d="5">
+        <a href="#projects" class="btn-prim">
+          <span>View My Work</span>
+          <div class="btn-shine" aria-hidden="true"></div>
+        </a>
+        <a href="#contact" class="btn-ghost">Let's Talk</a>
       </div>
-      <div class="hero-socials fade-up delay-5">
-        <a href="https://github.com/ThisalDinuwara"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="GitHub profile"
-           class="social-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-          </svg>
+      <div class="hero-soc ru" data-d="6">
+        <a href="https://github.com/ThisalDinuwara" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" class="soc">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
           GitHub
         </a>
-        <a href="https://www.linkedin.com/in/thisal-kandepola-65b66127b"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="LinkedIn profile"
-           class="social-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
+        <a href="https://www.linkedin.com/in/thisal-kandepola-65b66127b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" class="soc">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           LinkedIn
         </a>
       </div>
     </div>
 
-    <div class="hero-right fade-up delay-3">
-      <div class="hero-card">
+    <div class="hero-right ru" data-d="3">
+      <div class="hcard">
         <div class="hcard-glow" aria-hidden="true"></div>
         <div class="hcard-avatar">
-          <div class="avatar-letters" aria-label="Initials TK">TK</div>
-          <div class="avatar-ring r1" aria-hidden="true"></div>
-          <div class="avatar-ring r2" aria-hidden="true"></div>
+          <div class="ha-ring r1" aria-hidden="true"></div>
+          <div class="ha-ring r2" aria-hidden="true"></div>
+          <div class="ha-ring r3" aria-hidden="true"></div>
+          <div class="ha-init" aria-label="Initials TK">TK</div>
+          <div class="ha-online" aria-label="Available">
+            <span class="ha-pulse" aria-hidden="true"></span>
+          </div>
         </div>
-        <div class="hcard-chips">
-          <div class="chip chip-1"><span class="chip-dot" aria-hidden="true"></span>Full Stack Dev</div>
-          <div class="chip chip-2"><span class="chip-dot" aria-hidden="true"></span>UI/UX Designer</div>
-          <div class="chip chip-3"><span class="chip-dot" aria-hidden="true"></span>AI Enthusiast</div>
+        <div class="hcard-info">
+          <div class="hi-name">Thisal Kandepola</div>
+          <div class="hi-role">Full Stack Developer</div>
+          <div class="hi-loc">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Kegalle, Sri Lanka
+          </div>
         </div>
         <div class="hcard-stats">
-          <div class="hs"><span class="hs-n" data-target="4">0</span><span class="hs-l">Skills</span></div>
+          <div class="hs"><span class="hs-n" data-target="6">0</span><span class="hs-l">Projects</span></div>
           <div class="hs-sep" aria-hidden="true"></div>
           <div class="hs"><span class="hs-n" data-target="3">0</span><span class="hs-l">Certs</span></div>
           <div class="hs-sep" aria-hidden="true"></div>
           <div class="hs"><span class="hs-n" data-target="2">0</span><span class="hs-l">Years</span></div>
         </div>
-        <div class="hcard-location">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-            <circle cx="12" cy="9" r="2.5"/>
-          </svg>
-          Kegalle, Sri Lanka
+        <div class="hcard-chips">
+          <span>PHP</span><span>JavaScript</span><span>C#</span><span>Python</span>
         </div>
       </div>
+      <div class="fbadge fb1" aria-hidden="true"><span>🎨</span> UI/UX Designer</div>
+      <div class="fbadge fb2" aria-hidden="true"><span>⚡</span> Full Stack Dev</div>
+      <div class="fbadge fb3" aria-hidden="true"><span>🤖</span> AI Enthusiast</div>
     </div>
-  </div>
 
+  </div>
   <div class="hero-scroll-hint" aria-hidden="true">
-    <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+    <div class="scroll-bar"></div>
     <span>Scroll</span>
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ══════════ ABOUT ══════════ -->
 <section id="about" class="section">
   <div class="container">
-    <div class="sec-label reveal">
-      <span class="sec-num">01</span>
-      <span class="sec-line" aria-hidden="true"></span>
-      <span class="sec-title">About Me</span>
+    <div class="sec-head ru" data-d="0">
+      <span class="eyebrow">01 — Who I am</span>
+      <h2 class="sec-title">About <em>Me</em></h2>
     </div>
-
-    <div class="about-layout">
-      <div class="about-visual reveal delay-1">
-        <div class="av-frame">
-          <div class="av-inner">
-            <div class="av-initials" aria-label="Initials TK">TK</div>
-          </div>
-          <div class="av-corner tl" aria-hidden="true"></div>
-          <div class="av-corner tr" aria-hidden="true"></div>
-          <div class="av-corner bl" aria-hidden="true"></div>
-          <div class="av-corner br" aria-hidden="true"></div>
-          <div class="av-badge">&#127473;&#127472; Sri Lanka</div>
+    <div class="about-grid">
+      <div class="about-portrait ru" data-d="1">
+        <div class="portrait-box">
+          <div class="pb-inner"><div class="pb-init" aria-label="Initials TK">TK</div></div>
+          <div class="pb-border" aria-hidden="true"></div>
+          <div class="pb-dot tl" aria-hidden="true"></div>
+          <div class="pb-dot tr" aria-hidden="true"></div>
+          <div class="pb-dot bl" aria-hidden="true"></div>
+          <div class="pb-dot br" aria-hidden="true"></div>
+          <div class="pb-flag">&#127473;&#127472; Sri Lanka</div>
         </div>
-        <div class="av-details">
-          <div class="av-det-row">
-            <span class="det-k">Location</span>
-            <span class="det-v">Kegalle, Sri Lanka</span>
-          </div>
-          <div class="av-det-row">
-            <span class="det-k">Study</span>
-            <span class="det-v">NIBM &mdash; BSc Computing</span>
-          </div>
-          <div class="av-det-row">
-            <span class="det-k">Email</span>
-            <span class="det-v">tkandepola@gmail.com</span>
-          </div>
-          <div class="av-det-row">
-            <span class="det-k">Status</span>
-            <span class="det-v open-badge">Open to Work</span>
-          </div>
+        <div class="portrait-details">
+          <div class="pd-row"><span class="pd-k">Location</span><span class="pd-v">Kegalle, Sri Lanka</span></div>
+          <div class="pd-row"><span class="pd-k">University</span><span class="pd-v">NIBM City University</span></div>
+          <div class="pd-row"><span class="pd-k">Email</span><span class="pd-v">tkandepola@gmail.com</span></div>
+          <div class="pd-row"><span class="pd-k">Status</span><span class="pd-v pd-open">Open to Work</span></div>
         </div>
       </div>
-
-      <div class="about-content">
-        <h2 class="about-h2 reveal delay-2">
-          Passionate about crafting<br/>
-          <span class="highlight">digital experiences</span><br/>
-          that matter.
-        </h2>
-        <p class="about-p reveal delay-3">
-          Hello! I'm <strong>Thisal Kandepola</strong>, a software engineering student at
-          NIBM City University. I have a strong passion for creating intuitive, impactful
-          digital experiences through thoughtful design and clean code.
+      <div class="about-body">
+        <h3 class="about-h3 ru" data-d="1">
+          I build things that live on the internet —<br/>and make people <em>feel</em> something.
+        </h3>
+        <p class="about-p ru" data-d="2">
+          I'm <strong>Thisal Kandepola</strong>, a 2nd year Software Engineering student at NIBM City University.
+          My passion sits at the intersection of beautiful design and solid engineering — creating
+          digital products that are as delightful to use as they are robust under the hood.
         </p>
-        <p class="about-p reveal delay-4">
-          Currently exploring <em>web development</em>, <em>UI/UX design</em>, and
-          <em>game design</em>. I'm also deeply fascinated by AI technology and its
-          power to transform industries. Beyond tech, I dream of combining my love
-          for innovation with <em>aerospace design</em>.
+        <p class="about-p ru" data-d="3">
+          When I'm not coding, I explore the frontiers of <em>AI</em>, dream about
+          <em>aerospace design</em>, build robotics systems, and craft brand identities.
+          I believe great software is an act of empathy.
         </p>
-        <div class="about-tags reveal delay-5">
-          <span class="atag">UI/UX Design</span>
-          <span class="atag">Full Stack Dev</span>
-          <span class="atag">AI/ML</span>
-          <span class="atag">Game Design</span>
-          <span class="atag">Robotics</span>
-          <span class="atag">Aerospace</span>
-          <span class="atag">Branding</span>
+        <div class="interest-tags ru" data-d="4">
+          <span>UI/UX Design</span><span>Full Stack Dev</span><span>AI &amp; ML</span>
+          <span>Game Design</span><span>Robotics</span><span>Branding</span><span>Aerospace</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills" class="section section-alt">
+<!-- ══════════ SKILLS ══════════ -->
+<section id="skills" class="section s-dark">
   <div class="container">
-    <div class="sec-label reveal">
-      <span class="sec-num">02</span>
-      <span class="sec-line" aria-hidden="true"></span>
-      <span class="sec-title">Skills &amp; Expertise</span>
+    <div class="sec-head ru" data-d="0">
+      <span class="eyebrow">02 — What I do</span>
+      <h2 class="sec-title">Skills &amp; <em>Expertise</em></h2>
     </div>
-
-    <div class="skills-top">
-      <div class="skills-bars-col">
-        <p class="col-head reveal">Technical Proficiency</p>
-        <div class="sbar reveal delay-1">
-          <div class="sbar-meta"><span>UI/UX Design</span><span class="sbar-pct">85%</span></div>
-          <div class="sbar-track">
-            <div class="sbar-fill" data-w="85" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="UI/UX Design 85%"></div>
-          </div>
-        </div>
-        <div class="sbar reveal delay-2">
-          <div class="sbar-meta"><span>Web Development</span><span class="sbar-pct">80%</span></div>
-          <div class="sbar-track">
-            <div class="sbar-fill" data-w="80" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Web Development 80%"></div>
-          </div>
-        </div>
-        <div class="sbar reveal delay-3">
-          <div class="sbar-meta"><span>Python</span><span class="sbar-pct">70%</span></div>
-          <div class="sbar-track">
-            <div class="sbar-fill" data-w="70" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="Python 70%"></div>
-          </div>
-        </div>
-        <div class="sbar reveal delay-4">
-          <div class="sbar-meta"><span>Java</span><span class="sbar-pct">65%</span></div>
-          <div class="sbar-track">
-            <div class="sbar-fill" data-w="65" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="Java 65%"></div>
-          </div>
-        </div>
-        <div class="sbar reveal delay-5">
-          <div class="sbar-meta"><span>Brand &amp; Logo Design</span><span class="sbar-pct">78%</span></div>
-          <div class="sbar-track">
-            <div class="sbar-fill" data-w="78" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="Brand and Logo Design 78%"></div>
-          </div>
-        </div>
-        <div class="sbar reveal delay-6">
-          <div class="sbar-meta"><span>Game Design</span><span class="sbar-pct">60%</span></div>
-          <div class="sbar-track">
-            <div class="sbar-fill" data-w="60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Game Design 60%"></div>
-          </div>
-        </div>
+    <div class="skills-wrap">
+      <div class="skill-bars ru" data-d="1">
+        <p class="skills-sub">Technical Proficiency</p>
+        <div class="sb-item"><div class="sb-top"><span>UI/UX Design</span><span>85%</span></div><div class="sb-track"><div class="sb-fill" data-w="85" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="UI/UX Design 85%"></div></div></div>
+        <div class="sb-item"><div class="sb-top"><span>Web Development</span><span>80%</span></div><div class="sb-track"><div class="sb-fill" data-w="80" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Web Development 80%"></div></div></div>
+        <div class="sb-item"><div class="sb-top"><span>Python</span><span>70%</span></div><div class="sb-track"><div class="sb-fill" data-w="70" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="Python 70%"></div></div></div>
+        <div class="sb-item"><div class="sb-top"><span>Java</span><span>65%</span></div><div class="sb-track"><div class="sb-fill" data-w="65" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="Java 65%"></div></div></div>
+        <div class="sb-item"><div class="sb-top"><span>C# / .NET</span><span>72%</span></div><div class="sb-track"><div class="sb-fill" data-w="72" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="C# .NET 72%"></div></div></div>
+        <div class="sb-item"><div class="sb-top"><span>PHP</span><span>68%</span></div><div class="sb-track"><div class="sb-fill" data-w="68" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" aria-label="PHP 68%"></div></div></div>
+        <div class="sb-item"><div class="sb-top"><span>Brand &amp; Logo Design</span><span>78%</span></div><div class="sb-track"><div class="sb-fill" data-w="78" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="Brand and Logo Design 78%"></div></div></div>
       </div>
-
-      <div class="skills-cards-col">
-        <p class="col-head reveal">Expertise Areas</p>
-        <div class="exp-grid">
-          <div class="exp-card reveal delay-1"><div class="exp-icon" aria-hidden="true">🎨</div><div class="exp-name">UI/UX Design</div><div class="exp-desc">User-centered design, mockups, prototypes and visual systems.</div></div>
-          <div class="exp-card reveal delay-2"><div class="exp-icon" aria-hidden="true">🌐</div><div class="exp-name">Web Dev</div><div class="exp-desc">Full stack apps from elegant front-ends to solid back-ends.</div></div>
-          <div class="exp-card reveal delay-3"><div class="exp-icon" aria-hidden="true">🤖</div><div class="exp-name">AI &amp; ML</div><div class="exp-desc">Exploring intelligent systems and automation technologies.</div></div>
-          <div class="exp-card reveal delay-4"><div class="exp-icon" aria-hidden="true">🎮</div><div class="exp-name">Game Design</div><div class="exp-desc">Interactive experiences, mechanics and immersive worlds.</div></div>
-          <div class="exp-card reveal delay-5"><div class="exp-icon" aria-hidden="true">🔩</div><div class="exp-name">Robotics</div><div class="exp-desc">Hardware-software integration and autonomous systems.</div></div>
-          <div class="exp-card reveal delay-6"><div class="exp-icon" aria-hidden="true">✏️</div><div class="exp-name">Branding</div><div class="exp-desc">Logo design, visual identity and brand communication.</div></div>
+      <div class="exp-cards ru" data-d="2">
+        <p class="skills-sub">Expertise Areas</p>
+        <div class="ec-grid">
+          <div class="ec"><span class="ec-n" aria-hidden="true">01</span><span class="ec-ico" aria-hidden="true">🎨</span><strong>UI/UX Design</strong><p>User-centered design, wireframes &amp; visual systems</p></div>
+          <div class="ec"><span class="ec-n" aria-hidden="true">02</span><span class="ec-ico" aria-hidden="true">🌐</span><strong>Web Dev</strong><p>Full stack apps from elegant front-ends to solid back-ends</p></div>
+          <div class="ec"><span class="ec-n" aria-hidden="true">03</span><span class="ec-ico" aria-hidden="true">🖥️</span><strong>Desktop Apps</strong><p>Windows applications with C# .NET &amp; WinForms</p></div>
+          <div class="ec"><span class="ec-n" aria-hidden="true">04</span><span class="ec-ico" aria-hidden="true">🛒</span><strong>E-Commerce</strong><p>Full-featured shop systems with PHP &amp; JavaScript</p></div>
+          <div class="ec"><span class="ec-n" aria-hidden="true">05</span><span class="ec-ico" aria-hidden="true">🤖</span><strong>AI &amp; ML</strong><p>Intelligent systems &amp; machine learning exploration</p></div>
+          <div class="ec"><span class="ec-n" aria-hidden="true">06</span><span class="ec-ico" aria-hidden="true">✏️</span><strong>Branding</strong><p>Logo design, visual identity &amp; brand communication</p></div>
         </div>
       </div>
     </div>
-
-    <div class="soft-row reveal delay-2">
-      <p class="col-head">Soft Skills</p>
-      <div class="soft-pills">
-        <span class="spill">Leadership</span>
-        <span class="spill">Active Listening</span>
-        <span class="spill">Communication</span>
-        <span class="spill">Problem Solving</span>
-        <span class="spill">Teamwork</span>
-        <span class="spill">Adaptability</span>
-        <span class="spill">Critical Thinking</span>
-      </div>
-    </div>
-
-    <div class="lang-row reveal delay-3">
-      <p class="col-head">Languages</p>
-      <div class="lang-cards">
-        <div class="lang-card">
-          <span class="lang-flag" aria-hidden="true">&#127473;&#127472;</span>
-          <span class="lang-name">Sinhala</span>
-          <span class="lang-level">Native</span>
+    <div class="skills-foot ru" data-d="3">
+      <div class="sf-block">
+        <p class="skills-sub">Soft Skills</p>
+        <div class="soft-tags">
+          <span>Leadership</span><span>Active Listening</span><span>Communication</span>
+          <span>Problem Solving</span><span>Teamwork</span><span>Adaptability</span><span>Critical Thinking</span>
         </div>
-        <div class="lang-card">
-          <span class="lang-flag" aria-hidden="true">&#127468;&#127463;</span>
-          <span class="lang-name">English</span>
-          <span class="lang-level">Professional</span>
+      </div>
+      <div class="sf-block">
+        <p class="skills-sub">Languages</p>
+        <div class="lang-wrap">
+          <div class="lang"><span aria-hidden="true">&#127473;&#127472;</span><div><strong>Sinhala</strong><small>Native</small></div></div>
+          <div class="lang"><span aria-hidden="true">&#127468;&#127463;</span><div><strong>English</strong><small>Professional</small></div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- ══════════ PROJECTS ══════════ -->
 <section id="projects" class="section">
   <div class="container">
-    <div class="sec-label reveal">
-      <span class="sec-num">03</span>
-      <span class="sec-line" aria-hidden="true"></span>
-      <span class="sec-title">Projects</span>
+    <div class="sec-head ru" data-d="0">
+      <span class="eyebrow">03 — Selected Work</span>
+      <h2 class="sec-title">My <em>Projects</em></h2>
     </div>
+    <div class="proj-list">
 
-    <div class="proj-grid">
-      <div class="proj-card proj-featured reveal delay-1">
-        <div class="proj-number" aria-hidden="true">01</div>
-        <div class="proj-top">
-          <div class="proj-icon-big" aria-hidden="true">🌐</div>
-          <div class="proj-links-top">
-            <span class="proj-badge-feat">Featured</span>
-            <a href="https://github.com/ThisalDinuwara" target="_blank" rel="noopener noreferrer" aria-label="View Full Stack Web Application on GitHub" class="proj-gh-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              GitHub
+      <!-- 01 Grocery Store -->
+      <article class="proj-item ru" data-d="1">
+        <div class="pi-num" aria-hidden="true">01</div>
+        <div class="pi-body">
+          <div class="pi-head">
+            <div>
+              <span class="pi-cat">PHP · Web System</span>
+              <h3 class="pi-title">Grocery Store System</h3>
+            </div>
+            <a href="https://github.com/ThisalDinuwara/grocery-store" target="_blank" rel="noopener noreferrer" aria-label="View Grocery Store on GitHub" class="pi-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
             </a>
           </div>
+          <p>A full-featured grocery store management system built with PHP. Handles product listings, inventory management, shopping cart and order processing for a complete retail experience.</p>
+          <div class="pi-stack"><span>PHP</span><span>MySQL</span><span>HTML/CSS</span><span>JavaScript</span></div>
         </div>
-        <h3 class="proj-title">Full Stack Web Application</h3>
-        <p class="proj-desc">A complete full stack web application built during the University of Moratuwa Full Stack Developer course. Features modern UI/UX, RESTful APIs, and a robust back-end architecture.</p>
-        <div class="proj-stack"><span>HTML/CSS</span><span>JavaScript</span><span>Python</span><span>REST API</span></div>
-      </div>
+        <div class="pi-visual" aria-hidden="true"><div class="piv-inner">🛒</div></div>
+      </article>
 
-      <div class="proj-card reveal delay-2">
-        <div class="proj-number" aria-hidden="true">02</div>
-        <div class="proj-top">
-          <div class="proj-icon-big" aria-hidden="true">🤖</div>
-          <a href="https://github.com/ThisalDinuwara" target="_blank" rel="noopener noreferrer" aria-label="View Robotics Control System on GitHub" class="proj-gh-link small">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-          </a>
+      <!-- 02 Computer Shop -->
+      <article class="proj-item ru" data-d="2">
+        <div class="pi-num" aria-hidden="true">02</div>
+        <div class="pi-body">
+          <div class="pi-head">
+            <div>
+              <span class="pi-cat">JavaScript · E-Commerce</span>
+              <h3 class="pi-title">Computer Shop</h3>
+            </div>
+            <a href="https://github.com/ThisalDinuwara/Computer-Shop" target="_blank" rel="noopener noreferrer" aria-label="View Computer Shop on GitHub" class="pi-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </a>
+          </div>
+          <p>An e-commerce platform for computer hardware and accessories built with JavaScript. Features product catalog, filtering, cart management and a clean modern shopping interface.</p>
+          <div class="pi-stack"><span>JavaScript</span><span>HTML</span><span>CSS</span></div>
         </div>
-        <h3 class="proj-title">Robotics Control System</h3>
-        <p class="proj-desc">Hardware-software integration project exploring autonomous control, real-time sensor processing, and intelligent decision-making systems.</p>
-        <div class="proj-stack"><span>Python</span><span>Hardware</span><span>Sensors</span></div>
-      </div>
+        <div class="pi-visual" aria-hidden="true"><div class="piv-inner">💻</div></div>
+      </article>
 
-      <div class="proj-card reveal delay-3">
-        <div class="proj-number" aria-hidden="true">03</div>
-        <div class="proj-top">
-          <div class="proj-icon-big" aria-hidden="true">🎨</div>
-          <a href="https://github.com/ThisalDinuwara" target="_blank" rel="noopener noreferrer" aria-label="View Brand Identity System on GitHub" class="proj-gh-link small">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-          </a>
+      <!-- 03 HandiCraft Shop -->
+      <article class="proj-item ru" data-d="3">
+        <div class="pi-num" aria-hidden="true">03</div>
+        <div class="pi-body">
+          <div class="pi-head">
+            <div>
+              <span class="pi-cat">CSS · Web Design</span>
+              <h3 class="pi-title">HandiCraft Shop</h3>
+            </div>
+            <a href="https://github.com/ThisalDinuwara/HandiCraft-Shop" target="_blank" rel="noopener noreferrer" aria-label="View HandiCraft Shop on GitHub" class="pi-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </a>
+          </div>
+          <p>A beautifully designed online shop for handmade crafts and artisan products. Showcases strong CSS layout skills with an elegant, visually rich storefront for local Sri Lankan craftspeople.</p>
+          <div class="pi-stack"><span>CSS</span><span>HTML</span><span>UI Design</span></div>
         </div>
-        <h3 class="proj-title">Brand Identity System</h3>
-        <p class="proj-desc">Complete brand identity including logo, color palette, typography system and brand guidelines for a digital-first product.</p>
-        <div class="proj-stack"><span>Design</span><span>Illustrator</span><span>Figma</span></div>
-      </div>
+        <div class="pi-visual" aria-hidden="true"><div class="piv-inner">🎨</div></div>
+      </article>
 
-      <div class="proj-card reveal delay-4">
-        <div class="proj-number" aria-hidden="true">04</div>
-        <div class="proj-top">
-          <div class="proj-icon-big" aria-hidden="true">🎮</div>
-          <a href="https://github.com/ThisalDinuwara" target="_blank" rel="noopener noreferrer" aria-label="View 2D Game Design Project on GitHub" class="proj-gh-link small">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-          </a>
+      <!-- 04 POS System -->
+      <article class="proj-item ru" data-d="4">
+        <div class="pi-num" aria-hidden="true">04</div>
+        <div class="pi-body">
+          <div class="pi-head">
+            <div>
+              <span class="pi-cat">C# · Desktop App</span>
+              <h3 class="pi-title">POS — Point of Sale System</h3>
+            </div>
+            <a href="https://github.com/ThisalDinuwara/POS" target="_blank" rel="noopener noreferrer" aria-label="View POS System on GitHub" class="pi-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </a>
+          </div>
+          <p>A fully functional Point of Sale desktop application built with C#. Handles sales transactions, product management, billing and receipt generation for retail businesses.</p>
+          <div class="pi-stack"><span>C#</span><span>.NET</span><span>WinForms</span><span>SQL</span></div>
         </div>
-        <h3 class="proj-title">2D Game Design Project</h3>
-        <p class="proj-desc">An interactive 2D game exploring immersive mechanics, visual storytelling, and procedural content generation using Java.</p>
-        <div class="proj-stack"><span>Java</span><span>Game Dev</span><span>OOP</span></div>
-      </div>
+        <div class="pi-visual" aria-hidden="true"><div class="piv-inner">🧾</div></div>
+      </article>
+
+      <!-- 05 FRS -->
+      <article class="proj-item ru" data-d="5">
+        <div class="pi-num" aria-hidden="true">05</div>
+        <div class="pi-body">
+          <div class="pi-head">
+            <div>
+              <span class="pi-cat">C# · Console Application</span>
+              <h3 class="pi-title">FRS — First Console Application</h3>
+            </div>
+            <a href="https://github.com/ThisalDinuwara/FRS" target="_blank" rel="noopener noreferrer" aria-label="View FRS on GitHub" class="pi-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </a>
+          </div>
+          <p>My first console application built with C# — a foundational project that demonstrates core programming concepts including data handling, logic flow and object-oriented principles.</p>
+          <div class="pi-stack"><span>C#</span><span>.NET</span><span>Console</span><span>OOP</span></div>
+        </div>
+        <div class="pi-visual" aria-hidden="true"><div class="piv-inner">⌨️</div></div>
+      </article>
+
+      <!-- 06 Calculator -->
+      <article class="proj-item ru" data-d="6">
+        <div class="pi-num" aria-hidden="true">06</div>
+        <div class="pi-body">
+          <div class="pi-head">
+            <div>
+              <span class="pi-cat">JavaScript · Web App</span>
+              <h3 class="pi-title">Calculator App</h3>
+            </div>
+            <a href="https://github.com/ThisalDinuwara/Calculater" target="_blank" rel="noopener noreferrer" aria-label="View Calculator on GitHub" class="pi-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </a>
+          </div>
+          <p>A clean, functional calculator web application built with JavaScript. Features standard arithmetic operations with a modern, responsive UI design.</p>
+          <div class="pi-stack"><span>JavaScript</span><span>HTML</span><span>CSS</span></div>
+        </div>
+        <div class="pi-visual" aria-hidden="true"><div class="piv-inner">🔢</div></div>
+      </article>
+
     </div>
-
-    <div class="proj-more reveal delay-4">
+    <div class="proj-more ru" data-d="6">
       <a href="https://github.com/ThisalDinuwara" target="_blank" rel="noopener noreferrer" aria-label="View all projects on GitHub" class="btn-ghost">
-        View All on GitHub
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        View All 20 Repos on GitHub
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </a>
     </div>
   </div>
 </section>
 
-<!-- EDUCATION -->
-<section id="education" class="section section-alt">
+<!-- ══════════ EDUCATION ══════════ -->
+<section id="education" class="section s-dark">
   <div class="container">
-    <div class="sec-label reveal">
-      <span class="sec-num">04</span>
-      <span class="sec-line" aria-hidden="true"></span>
-      <span class="sec-title">Education &amp; Certifications</span>
+    <div class="sec-head ru" data-d="0">
+      <span class="eyebrow">04 — Background</span>
+      <h2 class="sec-title">Education &amp; <em>Certs</em></h2>
     </div>
-
-    <div class="edu-layout">
-      <div class="edu-timeline">
-        <div class="edu-item reveal delay-1">
-          <div class="edu-dot" aria-hidden="true"></div>
-          <div class="edu-connector" aria-hidden="true"></div>
-          <div class="edu-card">
-            <div class="edu-year">Current</div>
-            <h3 class="edu-deg">BSc (Hons) Computing</h3>
-            <p class="edu-inst">NIBM City University</p>
-            <p class="edu-detail">2nd Year &mdash; Higher National Diploma in Software Engineering. Focused on software development, UI/UX design and emerging technologies.</p>
-            <div class="edu-tags"><span>Software Engineering</span><span>UI/UX</span><span>Computing</span></div>
-          </div>
-        </div>
-
-        <div class="edu-item reveal delay-2">
-          <div class="edu-dot" aria-hidden="true"></div>
-          <div class="edu-connector" aria-hidden="true"></div>
-          <div class="edu-card">
-            <div class="edu-year">Completed</div>
-            <h3 class="edu-deg">Full Stack Developer Course</h3>
-            <p class="edu-inst">University of Moratuwa &mdash; CODL</p>
-            <p class="edu-detail">Comprehensive full stack training from Sri Lanka's leading technical university via Center for Open &amp; Distance Learning.</p>
-            <div class="edu-tags"><span>Full Stack</span><span>Web Dev</span></div>
-          </div>
-        </div>
-
-        <div class="edu-item reveal delay-3">
-          <div class="edu-dot" aria-hidden="true"></div>
-          <div class="edu-connector" aria-hidden="true"></div>
-          <div class="edu-card">
-            <div class="edu-year">Certified</div>
-            <h3 class="edu-deg">Diploma in IT Support &amp; Security</h3>
-            <p class="edu-inst">Alison</p>
-            <p class="edu-detail">IT support fundamentals, network security, troubleshooting and infrastructure management. Industry-standard certification.</p>
-            <div class="edu-tags"><span>IT Security</span><span>Networking</span></div>
-          </div>
-        </div>
-
-        <div class="edu-item reveal delay-4">
-          <div class="edu-dot" aria-hidden="true"></div>
-          <div class="edu-card">
-            <div class="edu-year">2023/2024</div>
-            <h3 class="edu-deg">GCE Advanced Level</h3>
-            <p class="edu-inst">Engineering Technology Stream</p>
-            <p class="edu-detail">ICT: C &middot; Engineering Technology: S &middot; Science for Technology: C. Built a strong foundation in tech and engineering principles.</p>
-            <div class="edu-tags"><span>Engineering</span><span>ICT</span><span>Science</span></div>
-          </div>
-        </div>
+    <div class="edu-grid">
+      <div class="edu-card ru" data-d="1">
+        <div class="edu-badge ec-curr">Current</div>
+        <div class="edu-ico" aria-hidden="true">🎓</div>
+        <h3>BSc (Hons) Computing</h3>
+        <p class="edu-inst">NIBM City University</p>
+        <p class="edu-desc">2nd Year — Higher National Diploma in Software Engineering. Focused on software development, UI/UX design and emerging technologies.</p>
+        <div class="edu-tags"><span>Software Engineering</span><span>UI/UX</span><span>Computing</span></div>
+      </div>
+      <div class="edu-card ru" data-d="2">
+        <div class="edu-badge ec-done">Completed</div>
+        <div class="edu-ico" aria-hidden="true">💻</div>
+        <h3>Full Stack Developer Course</h3>
+        <p class="edu-inst">University of Moratuwa — CODL</p>
+        <p class="edu-desc">Comprehensive full stack training from Sri Lanka's leading technical university via Center for Open &amp; Distance Learning.</p>
+        <div class="edu-tags"><span>Full Stack</span><span>Web Dev</span></div>
+      </div>
+      <div class="edu-card ru" data-d="3">
+        <div class="edu-badge ec-cert">Certified</div>
+        <div class="edu-ico" aria-hidden="true">🔐</div>
+        <h3>Diploma in IT Support &amp; Security</h3>
+        <p class="edu-inst">Alison</p>
+        <p class="edu-desc">IT support fundamentals, network security, troubleshooting and infrastructure management. Industry-standard certification.</p>
+        <div class="edu-tags"><span>IT Security</span><span>Networking</span></div>
+      </div>
+      <div class="edu-card ru" data-d="4">
+        <div class="edu-badge ec-al">2023/2024</div>
+        <div class="edu-ico" aria-hidden="true">📐</div>
+        <h3>GCE Advanced Level</h3>
+        <p class="edu-inst">Engineering Technology Stream</p>
+        <p class="edu-desc">ICT: C &middot; Engineering Technology: S &middot; Science for Technology: C. Strong foundation in tech and engineering principles.</p>
+        <div class="edu-tags"><span>Engineering</span><span>ICT</span><span>Science</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- ══════════ CONTACT ══════════ -->
 <section id="contact" class="section">
   <div class="container">
-    <div class="sec-label reveal">
-      <span class="sec-num">05</span>
-      <span class="sec-line" aria-hidden="true"></span>
-      <span class="sec-title">Get In Touch</span>
+    <div class="sec-head ru" data-d="0">
+      <span class="eyebrow">05 — Say Hello</span>
+      <h2 class="sec-title">Get In <em>Touch</em></h2>
     </div>
-
-    <div class="contact-layout">
-      <div class="contact-left reveal delay-1">
-        <h2 class="contact-h2">
-          Let's build<br/>something<br/><span class="highlight">great together.</span>
-        </h2>
-        <p class="contact-sub">I'm open to new opportunities, collaborations and creative conversations. Whether it's a project, internship or just a hello &mdash; reach out!</p>
-
-        <div class="contact-channels">
-          <a href="mailto:tkandepola@gmail.com" aria-label="Send an email" class="cch">
-            <div class="cch-icon" aria-hidden="true">✉️</div>
-            <div class="cch-body">
-              <span class="cch-label">Email</span>
-              <span class="cch-val">tkandepola@gmail.com</span>
-            </div>
-            <div class="cch-arrow" aria-hidden="true">&rarr;</div>
+    <div class="contact-grid">
+      <div class="contact-left ru" data-d="1">
+        <h3 class="contact-h3">Got a project?<br/>Let's build something<br/><em>extraordinary.</em></h3>
+        <p class="contact-p">Open to internships, freelance, collaborations and creative conversations. Big idea or just a hello — my inbox is always open.</p>
+        <div class="cc-list">
+          <a href="mailto:tkandepola@gmail.com" aria-label="Send email" class="cc-item">
+            <div class="cc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="cc-text"><span>Email</span><strong>tkandepola@gmail.com</strong></div>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="cc-arr" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
           </a>
-          <a href="https://www.linkedin.com/in/thisal-kandepola-65b66127b" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile" class="cch">
-            <div class="cch-icon" aria-hidden="true">💼</div>
-            <div class="cch-body">
-              <span class="cch-label">LinkedIn</span>
-              <span class="cch-val">thisal-kandepola</span>
-            </div>
-            <div class="cch-arrow" aria-hidden="true">&rarr;</div>
+          <a href="https://www.linkedin.com/in/thisal-kandepola-65b66127b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="cc-item">
+            <div class="cc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+            <div class="cc-text"><span>LinkedIn</span><strong>thisal-kandepola</strong></div>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="cc-arr" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
           </a>
-          <a href="https://github.com/ThisalDinuwara" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub profile" class="cch">
-            <div class="cch-icon" aria-hidden="true">🐙</div>
-            <div class="cch-body">
-              <span class="cch-label">GitHub</span>
-              <span class="cch-val">ThisalDinuwara</span>
-            </div>
-            <div class="cch-arrow" aria-hidden="true">&rarr;</div>
+          <a href="https://github.com/ThisalDinuwara" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="cc-item">
+            <div class="cc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></div>
+            <div class="cc-text"><span>GitHub</span><strong>ThisalDinuwara</strong></div>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="cc-arr" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
           </a>
-          <div class="cch no-hover">
-            <div class="cch-icon" aria-hidden="true">📞</div>
-            <div class="cch-body">
-              <span class="cch-label">Phone</span>
-              <span class="cch-val">+94 706 351 346</span>
-            </div>
+          <div class="cc-item no-link">
+            <div class="cc-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.1 6.1l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="cc-text"><span>Phone</span><strong>+94 706 351 346</strong></div>
           </div>
         </div>
       </div>
-
-      <div class="contact-right reveal delay-2">
-        <form class="cform" id="cform" onsubmit="submitForm(event)" novalidate>
-          <div class="cform-row">
-            <div class="cform-grp">
-              <label for="contactName">Name</label>
-              <input id="contactName" type="text" placeholder="Your name" required autocomplete="name"/>
-            </div>
-            <div class="cform-grp">
-              <label for="contactEmail">Email</label>
-              <input id="contactEmail" type="email" placeholder="your@email.com" required autocomplete="email"/>
-            </div>
+      <div class="contact-right ru" data-d="2">
+        <form id="cform" class="cform" onsubmit="submitForm(event)" novalidate>
+          <div class="cf-row">
+            <div class="cf-group"><label for="cName">Name</label><input id="cName" type="text" placeholder="Your name" required autocomplete="name"/></div>
+            <div class="cf-group"><label for="cEmail">Email</label><input id="cEmail" type="email" placeholder="your@email.com" required autocomplete="email"/></div>
           </div>
-          <div class="cform-grp">
-            <label for="contactSubject">Subject</label>
-            <input id="contactSubject" type="text" placeholder="What's this about?"/>
-          </div>
-          <div class="cform-grp">
-            <label for="contactMessage">Message</label>
-            <textarea id="contactMessage" rows="5" placeholder="Tell me about your project..." required></textarea>
-          </div>
-          <button type="submit" class="btn-main full-w">
-            <span id="formBtnTxt">Send Message</span>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="cf-group"><label for="cSubject">Subject</label><input id="cSubject" type="text" placeholder="What's this about?"/></div>
+          <div class="cf-group"><label for="cMsg">Message</label><textarea id="cMsg" rows="5" placeholder="Tell me about your project..." required></textarea></div>
+          <button type="submit" class="btn-prim full">
+            <span id="btnTxt">Send Message</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            <div class="btn-shine" aria-hidden="true"></div>
           </button>
-          <div class="cform-success" id="cformSuccess" role="alert" aria-live="polite">
-            &#10003; Message received! I'll get back to you soon.
+          <div class="cf-success" id="cSuccess" role="alert" aria-live="polite">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Message sent! I'll reply soon.
           </div>
         </form>
       </div>
@@ -538,13 +481,11 @@
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-logo" aria-label="TK logo">
-      <span class="logo-t">T</span><span class="logo-k">K</span><span class="logo-dot">.</span>
-    </div>
-    <p class="footer-copy">Designed &amp; Built by <span>Thisal Kandepola</span> &middot; 2025</p>
-    <div class="footer-socials">
-      <a href="https://github.com/ThisalDinuwara" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">GitHub</a>
-      <a href="https://www.linkedin.com/in/thisal-kandepola-65b66127b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">LinkedIn</a>
+    <div class="footer-logo">TK<em>.</em></div>
+    <p>Designed &amp; Built by <span>Thisal Kandepola</span> &copy; 2025</p>
+    <div class="footer-soc">
+      <a href="https://github.com/ThisalDinuwara" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
+      <a href="https://www.linkedin.com/in/thisal-kandepola-65b66127b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
     </div>
   </div>
 </footer>
